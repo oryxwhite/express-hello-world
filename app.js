@@ -26,19 +26,23 @@ app.use(express.static('public', options))
 
 // #############################################################################
 // Catch all handler for all other request.
-app.use('*', (req,res) => {
-  res.json({
-      at: new Date().toISOString(),
-      method: req.method,
-      hostname: req.hostname,
-      ip: req.ip,
-      query: req.query,
-      headers: req.headers,
-      cookies: req.cookies,
-      params: req.params
-    })
-    .end()
-})
+// app.use('*', (req,res) => {
+//   res.json({
+//       at: new Date().toISOString(),
+//       method: req.method,
+//       hostname: req.hostname,
+//       ip: req.ip,
+//       query: req.query,
+//       headers: req.headers,
+//       cookies: req.cookies,
+//       params: req.params
+//     })
+//     .end()
+// })
+
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/public/index.html'));
+});
 
 app.post('/api', (req, res) => {
   console.log(req.body)
