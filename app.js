@@ -40,4 +40,8 @@ app.use('*', (req,res) => {
     .end()
 })
 
+app.post('/api', (req, res) => {
+  console.log(req.body)
+})
+
 module.exports = app
