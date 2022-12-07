@@ -46,6 +46,7 @@ app.get('*', (req,res) =>{
 
 app.post('/api', (req, res) => {
   console.log(req.body)
+  res.json(req.body)
 })
 
 module.exports = app
